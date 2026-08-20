@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Growing - $1M Net Worth Mobile App</title>
+  <meta name="description" content="Growing - The exclusive invite-only mobile app for ambitious individuals serious about achieving a $1,000,000 net worth goal.">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/mobile-frame.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+
+  <!-- Demo Control Bar for Reviewers -->
+  <div class="view-control-bar">
+    <button id="btn-toggle-view-mode" class="btn btn-secondary btn-sm">🖥 Full Screen</button>
+  </div>
+
+  <!-- Mobile Device Shell Frame -->
+  <div class="device-container">
+    
+    <!-- iPhone Notch / Dynamic Island Simulator -->
+    <div class="device-notch">
+      <div class="camera-lens"></div>
+      <div class="speaker-grill"></div>
+    </div>
+
+    <!-- App Header -->
+    <header class="app-header">
+      <div class="brand-title">
+        <div class="brand-logo-icon">G</div>
+        <div>
+          <span class="brand-name">Growing</span>
+          <div style="font-size: 10px; color: var(--gold-accent); font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;">$1M Net Worth • Invite-Only</div>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <!-- Instructions / Help Guide Button -->
+        <button id="btn-open-instructions" class="btn btn-icon btn-secondary" title="App Instructions & Guide">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+        </button>
+
+        <!-- Feedback & Support Button -->
+        <button id="btn-open-feedback" class="btn btn-icon btn-secondary" title="Feedback & Bug Support">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+        </button>
+
+        <!-- Notification Bell Icon -->
+        <button id="btn-open-notifications" class="btn btn-icon btn-secondary" title="Notifications">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+        </button>
+
+        <!-- User Profile Button -->
+        <button id="btn-open-profile" class="btn btn-icon btn-primary" title="Profile Settings">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- Notification Toast Alert Overlay -->
+    <div id="global-notification-toast" class="notification-toast">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--gold-accent)" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+      <div style="flex: 1;">
+        <div style="font-size: 11px; font-weight: 700; color: var(--gold-accent); text-transform: uppercase;">Growing Alert</div>
+        <div class="toast-message" style="font-size: 12px; color: var(--text-white);">Welcome to Growing!</div>
+      </div>
+    </div>
+
+    <!-- App Content Viewport -->
+    <main id="main-tab-viewport" class="app-content">
+      <!-- Dynamic Views Rendered by JS -->
+    </main>
+
+    <!-- App Bottom Tab Bar Navigation -->
+    <nav class="app-tab-bar">
+      <button class="tab-item active" data-tab="dashboard">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+        Dashboard
+      </button>
+      <button class="tab-item" data-tab="connect">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+        Connect
+      </button>
+      <button class="tab-item" data-tab="resources">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+        Resources
+      </button>
+      <button class="tab-item" data-tab="blog">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+        Blog Spots
+      </button>
+      <button class="tab-item" data-tab="admin">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+        Admin
+      </button>
+    </nav>
+  </div>
+
+  <!-- 0A. Invite-Only Gate Modal Overlay -->
+  <div id="invite-gate-overlay" class="modal-overlay">
+    <div class="modal-box" style="text-align: center;">
+      <div class="brand-logo-icon" style="width: 56px; height: 56px; font-size: 30px; margin: 0 auto 12px auto;">G</div>
+      <span class="badge badge-gold" style="margin-bottom: 6px;">Invite-Only Community</span>
+      <h2 style="font-size: 22px; margin-top: 4px;">Enter Admin Invitation Code</h2>
+      <p style="font-size: 12px; color: var(--text-muted); margin-top: 6px; line-height: 1.5;">
+        Growing is an exclusive network. Please enter the invitation code issued to you by the Admin to unlock registration and set your personal passcode.
+      </p>
+
+      <form id="invite-code-form" style="margin-top: 16px;">
+        <div class="form-group">
+          <input type="text" id="input-invite-code" class="form-control" style="text-align: center; font-size: 16px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;" placeholder="Enter Admin Invite Code" required>
+        </div>
+        <p id="invite-error-msg" style="font-size: 11px; color: var(--red-bright); display: none; margin-bottom: 8px;">Invalid invitation code. Please request an invite code from the Admin.</p>
+        <button type="submit" class="btn btn-primary btn-full">Verify Invitation Code</button>
+      </form>
+
+      <div style="margin-top: 14px; font-size: 11px; color: var(--text-subtle);">
+        Invitation codes are issued exclusively by Growing Admin.
+      </div>
+    </div>
+  </div>
+
+  <!-- 1. Security Passcode Access Modal Overlay (App Required to Open) -->
+  <div id="pin-lock-overlay" class="modal-overlay active">
+    <div class="modal-box" style="text-align: center;">
+      <div class="brand-logo-icon" style="width: 50px; height: 50px; font-size: 26px; margin: 0 auto 12px auto;">G</div>
+      <h2 style="font-size: 24px;">Enter Your Passcode</h2>
+      <p id="pin-status-msg" style="font-size: 13px; color: var(--text-muted); margin-top: 4px;">
+        Enter your personal 4-digit passcode to unlock financial dashboard
+      </p>
+
+      <div class="pin-display">
+        <div class="pin-dot"></div>
+        <div class="pin-dot"></div>
+        <div class="pin-dot"></div>
+        <div class="pin-dot"></div>
+      </div>
+
+      <div class="pin-pad">
+        <button class="pin-btn" data-val="1">1</button>
+        <button class="pin-btn" data-val="2">2</button>
+        <button class="pin-btn" data-val="3">3</button>
+        <button class="pin-btn" data-val="4">4</button>
+        <button class="pin-btn" data-val="5">5</button>
+        <button class="pin-btn" data-val="6">6</button>
+        <button class="pin-btn" data-val="7">7</button>
+        <button class="pin-btn" data-val="8">8</button>
+        <button class="pin-btn" data-val="9">9</button>
+        <button class="pin-btn" data-val="back" style="font-size: 16px;">⌫</button>
+        <button class="pin-btn" data-val="0">0</button>
+        <button class="pin-btn" data-val="clear" style="font-size: 11px; color: var(--gold-accent);">CLEAR</button>
+      </div>
+
+      <div style="margin-top: 14px;">
+        <button id="btn-reset-pin-prompt" style="font-size: 11px; color: var(--gold-accent); text-decoration: underline; background: none; border: none; cursor: pointer;">
+          Forgot or Reset Passcode?
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Welcome Registration Modal Overlay -->
+  <div id="welcome-modal-overlay" class="modal-overlay">
+    <div class="modal-box">
+      <div style="text-align: center; margin-bottom: 16px;">
+        <span class="badge badge-burgundy">Step 1 of 2</span>
+        <h2 style="font-size: 22px; margin-top: 6px;">Welcome to Growing</h2>
+        <p style="font-size: 12px; color: var(--text-muted);">
+          Invitation verified! Complete registration form to submit your profile for admin approval.
+        </p>
+      </div>
+
+      <form id="welcome-reg-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">First Name <span class="badge badge-public">Public</span></label>
+            <input type="text" id="w-firstname" class="form-control" required placeholder="First name">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Last Name</label>
+            <input type="text" id="w-lastname" class="form-control" required placeholder="Last name">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input type="email" id="w-email" class="form-control" required placeholder="name@domain.com">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">WhatsApp Number / Profile Handle <span class="badge badge-emerald">Direct Connect</span></label>
+          <input type="tel" id="w-whatsapp" class="form-control" required placeholder="+14127205606" value="+14127205606">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">LinkedIn URL <span class="badge badge-public">Public</span></label>
+          <input type="url" id="w-linkedin" class="form-control" placeholder="https://linkedin.com/in/username">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Instagram URL <span class="badge badge-public">Public</span></label>
+          <input type="url" id="w-instagram" class="form-control" placeholder="https://instagram.com/username">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">What is motivating you to reach this net worth goal?</label>
+          <textarea id="w-motivation" class="form-control" required placeholder="Detail your financial drive and target milestones..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">How do you define net worth?</label>
+          <textarea id="w-definition" class="form-control" required placeholder="Explain your philosophy on assets vs liabilities..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-full" style="margin-top: 8px;">
+          Submit Registration for Admin Approval
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 3. Profile Registration & Asset/Liability Wizard Modal -->
+  <div id="profile-modal-overlay" class="modal-overlay">
+    <div class="modal-box">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+        <h2 style="font-size: 20px;">Full Profile Registration</h2>
+        <button id="btn-close-profile" class="btn btn-secondary btn-sm" style="padding: 4px 10px;">✕</button>
+      </div>
+
+      <div style="font-size: 12px; color: var(--text-muted); margin-bottom: 14px;">
+        Manage your public identity, social links, WhatsApp profile, assets, and liabilities.
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">First Name (Public)</label>
+          <input type="text" id="p-firstname" class="form-control">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Last Name</label>
+          <input type="text" id="p-lastname" class="form-control">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Email Address</label>
+        <input type="email" id="p-email" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">WhatsApp Direct Profile Number <span class="badge badge-emerald">Direct Connect</span></label>
+        <input type="tel" id="p-whatsapp" class="form-control" placeholder="+14127205606">
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">LinkedIn Link</label>
+          <input type="url" id="p-linkedin" class="form-control">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Instagram Link</label>
+          <input type="url" id="p-instagram" class="form-control">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Motivation</label>
+        <textarea id="p-motivation" class="form-control"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Net Worth Definition</label>
+        <textarea id="p-definition" class="form-control"></textarea>
+      </div>
+
+      <!-- Financial Management Buttons -->
+      <div style="display: flex; gap: 8px; margin-top: 10px; margin-bottom: 14px;">
+        <button id="btn-add-asset-item" class="btn btn-outline btn-sm" style="flex: 1;">+ Add Asset</button>
+        <button id="btn-add-liab-item" class="btn btn-outline btn-sm" style="flex: 1;">+ Add Liability</button>
+      </div>
+
+      <button id="btn-save-profile" class="btn btn-primary btn-full">Save & Update Growing Dashboard</button>
+    </div>
+  </div>
+
+  <!-- 0B. Initial Personal Passcode Setup Modal Overlay -->
+  <div id="pin-setup-overlay" class="modal-overlay">
+    <div class="modal-box" style="text-align: center;">
+      <div class="brand-logo-icon" style="width: 54px; height: 54px; font-size: 28px; margin: 0 auto 12px auto;">G</div>
+      <span class="badge badge-gold" style="margin-bottom: 6px;">Invitation Verified</span>
+      <h2 style="font-size: 22px; margin-top: 4px;">Set Your Personal Passcode</h2>
+      <p id="pin-setup-step-msg" style="font-size: 12px; color: var(--text-muted); margin-top: 6px;">
+        Create your personal 4-digit passcode to secure and unlock your Growing dashboard on all future logins.
+      </p>
+
+      <div class="pin-display">
+        <div class="pin-dot setup-dot"></div>
+        <div class="pin-dot setup-dot"></div>
+        <div class="pin-dot setup-dot"></div>
+        <div class="pin-dot setup-dot"></div>
+      </div>
+
+      <div class="pin-pad setup-pin-pad">
+        <button class="pin-btn setup-btn" data-val="1">1</button>
+        <button class="pin-btn setup-btn" data-val="2">2</button>
+        <button class="pin-btn setup-btn" data-val="3">3</button>
+        <button class="pin-btn setup-btn" data-val="4">4</button>
+        <button class="pin-btn setup-btn" data-val="5">5</button>
+        <button class="pin-btn setup-btn" data-val="6">6</button>
+        <button class="pin-btn setup-btn" data-val="7">7</button>
+        <button class="pin-btn setup-btn" data-val="8">8</button>
+        <button class="pin-btn setup-btn" data-val="9">9</button>
+        <button class="pin-btn setup-btn" data-val="back" style="font-size: 16px;">⌫</button>
+        <button class="pin-btn setup-btn" data-val="0">0</button>
+        <button class="pin-btn setup-btn" data-val="clear" style="font-size: 11px; color: var(--gold-accent);">CLEAR</button>
+      </div>
+
+      <div style="margin-top: 14px; font-size: 11px; color: var(--text-subtle);">
+        Once set, this passcode unlocks your personal dashboard on all future logins.
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. Device Notifications Settings Modal -->
+  <div id="notif-modal-overlay" class="modal-overlay">
+    <div class="modal-box" style="max-width: 440px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+        <h3 style="font-size: 18px; display: flex; align-items: center; gap: 8px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold-accent)" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+          Device Notifications
+        </h3>
+        <button id="btn-close-notif-modal" class="btn btn-secondary btn-sm" style="padding: 4px 10px;">✕</button>
+      </div>
+
+      <div id="notif-modal-content">
+        <!-- Rendered dynamically by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. Instructions & Guide Modal Overlay -->
+  <div id="instructions-modal-overlay" class="modal-overlay">
+    <div class="modal-box" style="max-width: 440px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+        <h3 style="font-size: 18px; display: flex; align-items: center; gap: 8px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold-accent)" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+          App Instructions & Section Guide
+        </h3>
+        <button id="btn-close-instructions-modal" class="btn btn-secondary btn-sm" style="padding: 4px 10px;">✕</button>
+      </div>
+
+      <div id="instructions-modal-content-area" style="max-height: 75vh; overflow-y: auto; padding-right: 4px;">
+        <!-- Dynamic Guide Cards Rendered by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. Feedback & Support Modal Overlay -->
+  <div id="feedback-modal-overlay" class="modal-overlay">
+    <div class="modal-box" style="max-width: 440px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+        <h3 style="font-size: 18px; display: flex; align-items: center; gap: 8px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--emerald-accent)" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          Help, Feedback & Bug Report
+        </h3>
+        <button id="btn-close-feedback-modal" class="btn btn-secondary btn-sm" style="padding: 4px 10px;">✕</button>
+      </div>
+
+      <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 12px;">
+        Have a question, need assistance, or noticed something isn't working? Submit your feedback directly to the Growing Admin team.
+      </p>
+
+      <div style="margin-bottom: 14px; padding: 10px 12px; background: rgba(184, 134, 11, 0.12); border: 1px solid var(--gold-accent); border-radius: var(--border-radius-sm); display: flex; justify-content: space-between; align-items: center;">
+        <div>
+          <div style="font-size: 11px; font-weight: 700; color: var(--gold-accent);">Member Support & Help Center</div>
+          <div style="font-size: 10px; color: var(--text-muted);">Direct email & FAQ assistance</div>
+        </div>
+        <a href="support.html" target="_blank" class="badge badge-emerald" style="text-decoration: none; padding: 4px 10px; font-size: 11px; background: var(--emerald-accent); color: #000; font-weight: 700;">🌐 Public Support Page 🔗</a>
+      </div>
+
+      <form id="feedback-submit-form">
+        <div class="form-group">
+          <label class="form-label">Category</label>
+          <select id="fb-type" class="form-control">
+            <option value="Report an Issue / Bug">Report an Issue / Bug</option>
+            <option value="Ask for Help / Support">Ask for Help / Support</option>
+            <option value="Feature Suggestion">Feature Suggestion</option>
+            <option value="General Feedback">General Feedback</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Subject</label>
+          <input type="text" id="fb-subject" class="form-control" required placeholder="Short summary of issue or question...">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Details & Message</label>
+          <textarea id="fb-message" class="form-control" required placeholder="Describe what happened or what help you need..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-full" style="margin-top: 6px;">
+          Submit Ticket to Admin
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Standalone JS Application Bundle -->
+  <script src="js/app.bundle.js"></script>
+</body>
+</html>
